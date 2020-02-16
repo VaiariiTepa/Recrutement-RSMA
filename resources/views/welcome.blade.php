@@ -65,36 +65,28 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            <form action="{{ route('import') }}" enctype="multipart/form-data" class="contact100-form validate-form" method="post">
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="wrap-input100 validate-input" data-validate="importer un fichier Excel">
+                    {{ csrf_field() }}
+                    <div class="custom-file">
+                        <input class="input100 custom-file-input" type="file" name="mon_fichier" placeholder="fichier EXCEL" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                        <label class="custom-file-label" for="inputGroupFile04">Choisir un fichier Excel</label>
+                      </div>
+                    {{-- <input class="input100" type="text" name="name" placeholder="Full Name"> --}}
+                    <span class="focus-input100"></span>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="container-contact100-form-btn">
+                    <button type="submit" class="contact100-form-btn">
+                        <span>
+                            <i class="fa fa-file-excel-o m-r-6" aria-hidden="true"></i>
+                                C reva :D
+                        </span>
+                    </button>
                 </div>
-            </div>
+            </form>
         </div>
     </body>
 </html>
